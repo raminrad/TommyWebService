@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tommy.dmi.com" elementFormDefault="unqualified" targetNamespace="http://tommy.dmi.com" version="1.0">
+<xs:element name="addEmployee" type="tns:addEmployee"/>
+<xs:element name="addEmployeeResponse" type="tns:addEmployeeResponse"/>
+<xs:element name="deleteEmployee" type="tns:deleteEmployee"/>
+<xs:element name="deleteEmployeeResponse" type="tns:deleteEmployeeResponse"/>
+<xs:element name="getEmployeeById" type="tns:getEmployeeById"/>
+<xs:element name="getEmployeeByIdResponse" type="tns:getEmployeeByIdResponse"/>
+<xs:element name="getEmployeeByName" type="tns:getEmployeeByName"/>
+<xs:element name="getEmployeeByNameResponse" type="tns:getEmployeeByNameResponse"/>
+<xs:element name="getEmployeeRoot" type="tns:getEmployeeRoot"/>
+<xs:element name="getEmployeeRootResponse" type="tns:getEmployeeRootResponse"/>
+<xs:complexType name="getEmployeeByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmployeeByNameResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="employee" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="boss" type="tns:employee"/>
+      <xs:element name="employeeId" type="xs:int"/>
+      <xs:element minOccurs="0" name="firstname" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="staff" nillable="true" type="tns:employee"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmployeeById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getEmployeeByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employee" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="deleteEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="deleteEmployeeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getEmployeeRoot">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getEmployeeRootResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employeeList" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:employee"/>
+      <xs:element minOccurs="0" name="arg1" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="addEmployeeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

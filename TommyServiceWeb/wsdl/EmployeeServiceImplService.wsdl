@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="EmployeeServiceImplService" targetNamespace="http://tommy.dmi.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://tommy.dmi.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://tommy.dmi.com" schemaLocation="EmployeeServiceImplService_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getEmployeeRootResponse">
+    <wsdl:part name="parameters" element="tns:getEmployeeRootResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByNameResponse">
+    <wsdl:part name="parameters" element="tns:getEmployeeByNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByName">
+    <wsdl:part name="parameters" element="tns:getEmployeeByName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeById">
+    <wsdl:part name="parameters" element="tns:getEmployeeById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEmployeeResponse">
+    <wsdl:part name="parameters" element="tns:addEmployeeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeRoot">
+    <wsdl:part name="parameters" element="tns:getEmployeeRoot">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addEmployee">
+    <wsdl:part name="parameters" element="tns:addEmployee">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeResponse">
+    <wsdl:part name="parameters" element="tns:deleteEmployeeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByIdResponse">
+    <wsdl:part name="parameters" element="tns:getEmployeeByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteEmployee">
+    <wsdl:part name="parameters" element="tns:deleteEmployee">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Employee">
+    <wsdl:operation name="getEmployeeByName">
+      <wsdl:input name="getEmployeeByName" message="tns:getEmployeeByName">
+    </wsdl:input>
+      <wsdl:output name="getEmployeeByNameResponse" message="tns:getEmployeeByNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeById">
+      <wsdl:input name="getEmployeeById" message="tns:getEmployeeById">
+    </wsdl:input>
+      <wsdl:output name="getEmployeeByIdResponse" message="tns:getEmployeeByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <wsdl:input name="deleteEmployee" message="tns:deleteEmployee">
+    </wsdl:input>
+      <wsdl:output name="deleteEmployeeResponse" message="tns:deleteEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeRoot">
+      <wsdl:input name="getEmployeeRoot" message="tns:getEmployeeRoot">
+    </wsdl:input>
+      <wsdl:output name="getEmployeeRootResponse" message="tns:getEmployeeRootResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEmployee">
+      <wsdl:input name="addEmployee" message="tns:addEmployee">
+    </wsdl:input>
+      <wsdl:output name="addEmployeeResponse" message="tns:addEmployeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeServiceImplServiceSoapBinding" type="tns:Employee">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEmployeeById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeByName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeByNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteEmployee">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeRoot">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEmployeeRoot">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeRootResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEmployee">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addEmployee">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeServiceImplService">
+    <wsdl:port name="EmployeePort" binding="tns:EmployeeServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:9090/EmployeePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
